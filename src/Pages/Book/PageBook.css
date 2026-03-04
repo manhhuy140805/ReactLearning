@@ -1,0 +1,31 @@
+.books-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.books-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  padding: 40px 20px;
+}
+
+.books-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .books-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,148 @@
+.book-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.btn-back {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #e8e8e8;
+}
+
+.book-detail {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.detail-info h1 {
+  font-size: 28px;
+  margin: 0 0 16px 0;
+  color: #1a1a1a;
+}
+
+.detail-author,
+.detail-category {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #666;
+}
+
+.detail-author strong,
+.detail-category span {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.detail-rating {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 12px 0;
+  color: #ff6b6b;
+}
+
+.detail-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+  padding: 16px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spec span {
+  font-size: 13px;
+  color: #999;
+}
+
+.spec strong {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.detail-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin: 20px 0;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ff5252;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+  background: #e8e8e8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .book-detail {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .detail-specs {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+  }
+}
