@@ -1,29 +1,33 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import { fetchBooks } from "../../services/bookService";
+import { searchAndFilterBooks } from "../../services/bookService";
 import BookItem from "../../components/BookItem/BookItem";
+import SearchBar from "../../components/SearchBar";
 
 export default function PageBooks() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   useEffect(() => {
-    console.log("render");
     setLoading(true);
-    fetchBooks()
-      .then((data) => {
-        setBooks(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Lỗi khi tải sách:", error);
-        setLoading(false);
-      });
-  }, []);
+    searchAndFilterBooks(query, selectedCategory).then((data) => {
+      setBooks(data);
+      setLoading(false);
+    });
+  }, [query, selectedCategory]);
 
   return (
     <>
       <h2>Danh sách sách</h2>
+      <SearchBar
+        query={query}
+        setQuery={setQuery}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       {loading ? (
         <p>Đang tải sách...</p>
       ) : (

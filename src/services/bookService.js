@@ -6,11 +6,11 @@ export const fetchBooks = () => {
     setTimeout(() => {
       const booksWithCategory = mockBooks.map((book) => ({
         ...book,
-        categoryName: mockCategories.map((cat) => cat.id === book.categoryId)
+        categoryName: mockCategories.find((cat) => cat.id === book.categoryId)
           ?.name,
       }));
       resolve(booksWithCategory);
-    }, 1000);
+    }, 200);
   });
 };
 
@@ -29,6 +29,25 @@ export const fetchBookByID = (id) => {
       } else {
         resolve(null);
       }
-    }, 1000);
+    }, 200);
+  });
+};
+
+export const searchAndFilterBooks = (query, categoryId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let filteredBooks = mockBooks;
+      if (query) {
+        filteredBooks = filteredBooks.filter((book) =>
+          book.title.toLowerCase().includes(query.toLowerCase()),
+        );
+      }
+      if (categoryId) {
+        filteredBooks = filteredBooks.filter(
+          (book) => book.categoryId === categoryId,
+        );
+      }
+      resolve(filteredBooks);
+    }, 200);
   });
 };
